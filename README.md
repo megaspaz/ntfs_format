@@ -13,5 +13,5 @@
     format drive or disk with the identifier disk4. Do not use IDs like disk4s1.
     <br /><br />
     
-- Prerequisite instructions found [here.](https://www.google.com)
+- Prerequisite instructions found [here.](https://github.com/osxfuse/osxfuse/wiki/NTFS-3G)
 - This only works on disks formatted in a simple MBR type format.
