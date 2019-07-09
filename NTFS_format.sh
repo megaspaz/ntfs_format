@@ -28,6 +28,13 @@ fi
 disk="/dev/${1}"
 container="${disk}s1"
 
+retval=`diskutil list "${disk}" 2>&1`
+if [[ "${retval}" = "Could not find disk for ${disk}" ]]
+then
+  printf "${retval}. You can do a 'NTFS_format.sh -l' beforehand to verify."
+  exit 1
+fi
+
 # unmount the container/partition.
 diskutil unmount "${container}"
 
