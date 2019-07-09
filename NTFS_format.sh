@@ -4,9 +4,7 @@ if [ -z "${1}" ]
 then
   echo "Input required. Exiting..."
   exit 0
-fi
-
-if [ "${1}" == "-l" ]
+elif [ "${1}" == "-l" ]
 then
   diskutil list
   exit 0
