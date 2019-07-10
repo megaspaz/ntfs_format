@@ -78,7 +78,7 @@ diskutil list "${disk}"
   echo y # Do you wish to write new MBR and partition table? [n]
 ) | sudo fdisk -i -a dos "${disk}"
 
-sleep 5
+sleep 3
 
 (
   echo print    # fdisk: 1>
