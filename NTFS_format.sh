@@ -1,8 +1,25 @@
 #!/usr/bin/env bash
 
+function list_disk_if_exists {
+  retval=$(diskutil list "${1}" 2>&1)
+  if [[ "${retval}" = "Could not find disk for ${1}" ]]
+  then
+    printf "${retval}. You can do a 'NTFS_format.sh -l' beforehand to verify."
+    exit 1
+  fi
+  func_return="${retval}"
+}
+
+function get_disk_from_du_list_output {
+  retval=$(printf "${func_return}" | cut -d'/' -f3 | cut -d' ' -f1)
+  func_return="${retval}"
+}
+
+user_input=""
+func_return=""
 if [ -z "${1}" ]
 then
-  echo "Input required. Exiting..."
+  printf "Input required. Exiting..."
   exit 0
 elif [ "${1}" == "-l" ]
 then
@@ -17,21 +34,32 @@ then
 ./NTSF_format.sh -u
     prints this usage.
 
+./NTSF_format.sh -n \"Thumb Drive Name\"
+    format drive or disk with the display name of \"Thumb Drive Name\". Enclose in quotes names with spaces.
+
 ./NTSF_format.sh disk4
     format drive or disk with the identifier disk4. Do not use IDs like disk4s1.\n\n"
 
   exit 0
-fi
-
-disk="/dev/${1}"
-container="${disk}s1"
-
-retval=`diskutil list "${disk}" 2>&1`
-if [[ "${retval}" = "Could not find disk for ${disk}" ]]
+elif [[ "${1}" == "-n" || "${1}" == "-name" ]]
 then
-  printf "${retval}. You can do a 'NTFS_format.sh -l' beforehand to verify."
-  exit 1
+  if [ -z "${2}" ]
+  then
+    printf "Input required for name value. Exiting..."
+    exit 0
+  fi
+  list_disk_if_exists "${2}"
+  get_disk_from_du_list_output "${func_return}"
+  user_input="${func_return}"
+else
+  # Assume logical id was used, like disk4.
+  user_input="${1}"
 fi
+
+disk="/dev/${user_input}"
+container="${disk}s1"
+# Run in case user did something like ./NTSF_format.sh disk4
+list_disk_if_exists "${2}"
 
 # unmount the container/partition.
 diskutil unmount "${container}"
