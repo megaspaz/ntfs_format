@@ -4,14 +4,14 @@ function list_disk_if_exists {
   retval=$(diskutil list "${1}" 2>&1)
   if [[ "${retval}" = "Could not find disk for ${1}" ]]
   then
-    printf "${retval}. You can do a 'NTFS_format.sh -l' beforehand to verify."
+    printf "%s. You can do a 'NTFS_format.sh -l' beforehand to verify." "${retval}"
     exit 1
   fi
   func_return="${retval}"
 }
 
 function get_disk_from_du_list_output {
-  retval=$(printf "${1}" | cut -d'/' -f3 | cut -d' ' -f1)
+  retval=$(printf "%s" "${1}" | cut -d'/' -f3 | cut -d' ' -f1)
   func_return="${retval}"
 }
 
@@ -78,7 +78,7 @@ diskutil list "${disk}"
   echo y # Do you wish to write new MBR and partition table? [n]
 ) | sudo fdisk -i -a dos "${disk}"
 
-sleep 3
+sleep 5
 
 (
   echo print    # fdisk: 1>
