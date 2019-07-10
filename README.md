@@ -1,19 +1,19 @@
 # NTFS_format
 
 - **./NTSF_format.sh -l**
-    ```bash
+    ```sh
     runs diskutil list
     ```
 - **./NTSF_format.sh -[h | help]**
-    ```bash
+    ```sh
     prints this usage.
     ```
 - **./NTSF_format.sh -[n | name] \"Thumb Drive Name\"**
-    ```bash
+    ```sh
     format drive or disk with the display name of \"Thumb Drive Name\". Enclose in quotes names with spaces.
     ```
 - **./NTSF_format.sh -[n | name] disk4**
-    ```bash
+    ```sh
     format drive or disk with the identifier disk4. /dev/disk4 is also acceptable Do not use IDs like disk4s1.
     ```
 
