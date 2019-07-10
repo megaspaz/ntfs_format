@@ -11,7 +11,7 @@ function list_disk_if_exists {
 }
 
 function get_disk_from_du_list_output {
-  retval=$(printf "${func_return}" | cut -d'/' -f3 | cut -d' ' -f1)
+  retval=$(printf "${1}" | cut -d'/' -f3 | cut -d' ' -f1)
   func_return="${retval}"
 }
 
