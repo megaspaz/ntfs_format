@@ -19,3 +19,4 @@
     
 - Prerequisite instructions found [here.](https://github.com/osxfuse/osxfuse/wiki/NTFS-3G)
 - This only works on disks formatted in a simple MBR type format.
+
