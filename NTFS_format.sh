@@ -34,7 +34,7 @@ then
 ./NTSF_format.sh -u
     prints this usage.
 
-./NTSF_format.sh -n \"Thumb Drive Name\"
+./NTSF_format.sh -[n | name] \"Thumb Drive Name\"
     format drive or disk with the display name of \"Thumb Drive Name\". Enclose in quotes names with spaces.
 
 ./NTSF_format.sh disk4
