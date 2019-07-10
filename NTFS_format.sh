@@ -44,13 +44,15 @@ elif [[ "${1}" == "-n" || "${1}" == "-name" ]]
 then
   if [ -z "${2}" ]
   then
-    printf "Input required for name value. Exiting..."
+    printf "Input required for name value. Exiting...\n"
+    print_usage
     exit 0
   fi
   list_disk_if_exists "${2}"
   get_disk_from_du_list_output "${func_return}"
   user_input="${func_return}"
 else
+  printf "Invalid option or expected option not given. Exiting...\n"
   print_usage
   exit 0
 fi
