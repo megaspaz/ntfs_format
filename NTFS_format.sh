@@ -27,7 +27,7 @@ function print_usage {
     format drive or disk with the display name of \"Thumb Drive Name\". Enclose in quotes names with spaces.
 
 ./NTSF_format.sh -[n | name] disk4
-    format drive or disk with the identifier disk4. /dev/disk4 is also acceptable.Do not use IDs like disk4s1.\n\n"
+    format drive or disk with the identifier disk4. /dev/disk4 is also acceptable. Do not use IDs like disk4s1.\n\n"
 }
 
 user_input=""
