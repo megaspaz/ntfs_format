@@ -57,8 +57,6 @@ fi
 
 disk="/dev/${user_input}"
 container="${disk}s1"
-# Run in case user did something like ./NTSF_format.sh disk4
-list_disk_if_exists "${2}"
 
 # unmount the container/partition.
 diskutil unmount "${container}"
