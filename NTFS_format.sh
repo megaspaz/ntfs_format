@@ -15,31 +15,30 @@ function get_disk_from_du_list_output {
   func_return="${retval}"
 }
 
-user_input=""
-func_return=""
-if [ -z "${1}" ]
-then
-  printf "Input required. Exiting..."
-  exit 0
-elif [ "${1}" == "-l" ]
-then
-  diskutil list
-  exit 0
-elif [ "${1}" == "-u" ]
-then
+function print_usage {
   printf "
 ./NTSF_format.sh -l
     runs diskutil list
 
-./NTSF_format.sh -u
+./NTSF_format.sh -[h | help]
     prints this usage.
 
 ./NTSF_format.sh -[n | name] \"Thumb Drive Name\"
     format drive or disk with the display name of \"Thumb Drive Name\". Enclose in quotes names with spaces.
 
-./NTSF_format.sh disk4
-    format drive or disk with the identifier disk4. Do not use IDs like disk4s1.\n\n"
+./NTSF_format.sh -[n | name] disk4
+    format drive or disk with the identifier disk4. /dev/disk4 is also acceptable.Do not use IDs like disk4s1.\n\n"
+}
 
+user_input=""
+func_return=""
+if [ "${1}" == "-l" ]
+then
+  diskutil list
+  exit 0
+elif [[ "${1}" == "-h" || "${1}" == "-help" ]]
+then
+  print_usage
   exit 0
 elif [[ "${1}" == "-n" || "${1}" == "-name" ]]
 then
@@ -52,8 +51,8 @@ then
   get_disk_from_du_list_output "${func_return}"
   user_input="${func_return}"
 else
-  # Assume logical id was used, like disk4.
-  user_input="${1}"
+  print_usage
+  exit 0
 fi
 
 disk="/dev/${user_input}"
