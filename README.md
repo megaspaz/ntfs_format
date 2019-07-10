@@ -8,6 +8,10 @@
     <br />
     prints this usage.
     <br /><br />
+- **./NTSF_format.sh -[n | name] \"Thumb Drive Name\"**
+    <br />
+    format drive or disk with the display name of \"Thumb Drive Name\". Enclose in quotes names with spaces.
+    <br /><br />
 - **./NTSF_format.sh disk4**
     <br />
     format drive or disk with the identifier disk4. Do not use IDs like disk4s1.
