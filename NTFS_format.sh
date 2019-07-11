@@ -4,7 +4,7 @@ function list_disk_if_exists {
   retval=$(diskutil list "${1}" 2>&1)
   if [[ "${retval}" = "Could not find disk for ${1}" ]]
   then
-    printf "%s. You can do a 'NTFS_format.sh -l' beforehand to verify." "${retval}"
+    printf "%s. You can do a 'NTFS_format.sh -l' beforehand to verify." "${retval}\n"
     exit 1
   fi
   func_return="${retval}"
