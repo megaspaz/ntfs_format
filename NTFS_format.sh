@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+################################################################
+# Script Name  : NTFS_format.sh                                #
+# Description  : Format a disk/volume to the NTFS file sytem.  #
+# Args         :                                               #
+# Author       : megaspaz                                      #
+# Email        : megaspaz2k7@gmail.com                         #
+################################################################
+
 function list_disk_if_exists {
   retval=$(diskutil list "${1}" 2>&1)
   if [[ "${retval}" = "Could not find disk for ${1}" ]]
