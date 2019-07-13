@@ -6,6 +6,7 @@
 # Args         :                                                #
 # Author       : megaspaz                                       #
 # Email        : megaspaz2k7@gmail.com                          #
+# Copyright    : (c) 2019                                       #
 #################################################################
 
 function list_disk_if_exists {
