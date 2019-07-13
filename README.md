@@ -1,6 +1,6 @@
 # NTFS_format
 
-![Code monkey](https://media1.giphy.com/media/XGqDsE3owV0RO/giphy.gif?cid=790b76115d2a61eb352e4354517fed9a&rid=giphy.gif)
+![Code jockey](https://media.giphy.com/media/Fq5ttNBdBDjHi/giphy.gif)
 
 - **./NTSF_format.sh -l**  
     ```text
