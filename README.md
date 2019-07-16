@@ -12,7 +12,7 @@
     ```
 - **./NTSF_format.sh -[n | name] \"Thumb Drive Name\"**  
     ```text
-    format drive or disk with the display name of \"Thumb Drive Name\". Enclose in quotes names with spaces.
+    format drive or disk with the display name of "Thumb Drive Name". Enclose in quotes names with spaces.
     ```
 - **./NTSF_format.sh -[n | name] disk4**  
     ```text
